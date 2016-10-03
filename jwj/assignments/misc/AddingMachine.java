@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class AddingMachine
 {
-   
     public static void main(String[] args) {
         // initialise instance variables
         Scanner keyboard = new Scanner(System.in);
