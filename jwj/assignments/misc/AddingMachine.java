@@ -26,7 +26,6 @@ public class AddingMachine
         
         out.println("\nTotal: " + total + "\n");
         out.print("You entered " + tally + " numbers, for a final total of " + total);
-        
     }
 
 }
