@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class AddingMachine
 {
-   
     public static void main(String[] args) {
         // initialise instance variables
         Scanner keyboard = new Scanner(System.in);
@@ -27,7 +26,6 @@ public class AddingMachine
         
         out.println("\nTotal: " + total + "\n");
         out.print("You entered " + tally + " numbers, for a final total of " + total);
-        
     }
 
 }
