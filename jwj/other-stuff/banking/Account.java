@@ -18,7 +18,6 @@ public class Account {
 	private float balance;
 	private int number;
 	private String owner;
-	private int routingNum;
 	private final float MIN_BALANCE = 50;  //constant
 	
 	//constructor
@@ -26,7 +25,6 @@ public class Account {
 		this.balance = balance;
 		this.number = number;
 		this.owner = owner;
-		this.routingNum = 123456;
 	}	
 	
 	//getters
