@@ -33,8 +33,24 @@ public class Bank {
 	
 	//create account
 	public void createAccount(float balance, String owner) {
-		int accountNum = accounts.size();
+		int accountNum = accounts.size() + 1;
+		Account newAccount = new Account(balance, accountNum, owner);
+		accounts.add(newAccount);
 	}
+	
+	//deposit
+	public void makeDeposit(float amount, int accountNum) {
+		Account a = accounts.get(accountNum-1);
+		a.deposit(amount);
+		//could also accomplish the above in a single line of code:
+		//accounts.get(accountNum-1).deposit(amount);
+	}
+
+	//withdraw
+		public void makeWithdrawal(float amount, int accountNum) {
+			Account a = accounts.get(accountNum-1);
+			a.withdraw(amount);
+		}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
