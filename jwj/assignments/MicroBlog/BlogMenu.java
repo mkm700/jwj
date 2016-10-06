@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BlogMenu {
-	//has-a
-	static int activeUser = -1;  //TODO: Is this a good way to keep track of current user? 
+	//has-a 
+	static String activeUser = ""; //TODO: Is this a good way to keep track of current user? 
 	private ArrayList<User> users;
 	private ArrayList<Post> posts;
 	private Scanner s;
@@ -33,9 +33,9 @@ public class BlogMenu {
 		System.out.println("5) Print all users");
 		System.out.println("6) Quit");
 		
-		if (activeUser >= 0) {
-			//TODO: How do I get only the username instead of the whole object???
-			System.out.print("You are currently user \"" + users.get(activeUser).getUserName() + "\". ");
+		//if active user, list the username
+		if (!activeUser.isEmpty()) {
+			System.out.println("You are currently user \"" + activeUser + "\".");
 		}
 		
 		System.out.println("What would you like to do?\nEnter 1 - 5, or 6 to quit: ");
@@ -52,11 +52,7 @@ public class BlogMenu {
 			return 6;
 		}
 	}
-	
-	//find current user
-//	public User findCurrentUser() {
-//		
-//	}
+
 	
 	//process input
 	public void processInput(int x) {
@@ -109,7 +105,8 @@ public class BlogMenu {
 				int response = s.nextInt() - 1;
 				//if (response >= 0 && response  <= users.size() ) {
 					//isValid = true;
-					activeUser = response;
+					//activeUserIdx = response;
+					activeUser = users.get(response).getUserName(); 	//save the user name in a static variable
 				//}
 					
 			//}
@@ -118,16 +115,16 @@ public class BlogMenu {
 	//3. Create the post as a current user
 		//public Post(String postTitle, String postContents, String uname) {
 		public void createNewPost() {
-			String uname = users.get(activeUser).getUserName();
+			String uname = activeUser;
 			boolean found = false;
 			int i = posts.size() - 1;
-			if (i >= 0) {		//there is at least 1 post
+			if (i >= 0) {								// if there is at least 1 post
 				String u = "";
 				do {
 					u = posts.get(i).getUname();
 					
 					if (u == uname) {
-						found = true;
+						found = true;					//display the last post by that user
 						System.out.println("Your last post was:\n" + posts.get(i));
 					}
 					i--;

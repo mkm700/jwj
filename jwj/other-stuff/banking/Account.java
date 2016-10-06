@@ -68,17 +68,24 @@ public class Account {
 	
 
 	public static void main(String[] args) {
-		Account a = new Account(500.00f, 12345, "Mary Kay Murdaugh");
-		System.out.println(a);
-		System.out.println(a.getBalance());
-		a.withdraw(200);
-		System.out.println(a.getBalance());
-		a.withdraw(275);
-		System.out.println(a.getBalance());
-		a.deposit(500);
-		System.out.println(a.getBalance());
-		a.withdraw(275);
-		System.out.println(a.getBalance());
+		Account a = new Account(500.00f, 123, "Mary Kay Murdaugh");
+		Account b = new Account(200.00f, 678, "Harry Potter");
+//		System.out.println(a);
+//		System.out.println(a.getBalance());
+//		a.withdraw(200);
+//		System.out.println(a.getBalance());
+//		a.withdraw(275);
+//		System.out.println(a.getBalance());
+//		a.deposit(500);
+//		System.out.println(a.getBalance());
+//		a.withdraw(275);
+//		System.out.println(a.getBalance());
+		System.out.println("MK: " + a.getBalance());
+		System.out.println("HP: " + b.getBalance());
+		b.transfer(a, 100);
+		System.out.println("MK: " + a.getBalance());
+		System.out.println("HP: " + b.getBalance());
+		
 	}
 
 }
