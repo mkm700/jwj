@@ -10,6 +10,11 @@ public class Post
     private String uname;
     private String link = "";
     private int orderPosted;
+    
+    //getters
+    public String getUname() {
+    	return this.uname;
+    }
 
     //constructor
     public Post(String postTitle, String postContents, String uname) {

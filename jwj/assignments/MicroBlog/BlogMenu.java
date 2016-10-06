@@ -119,10 +119,20 @@ public class BlogMenu {
 		//public Post(String postTitle, String postContents, String uname) {
 		public void createNewPost() {
 			String uname = users.get(activeUser).getUserName();
-			//TODO: How to get last post entered by this user???
-			//display the last post entered by this user
-			//System.out.println("This is the last post " + uname + " entered: ");
-			
+			boolean found = false;
+			int i = posts.size() - 1;
+			if (i >= 0) {		//there is at least 1 post
+				String u = "";
+				do {
+					u = posts.get(i).getUname();
+					
+					if (u == uname) {
+						found = true;
+						System.out.println("Your last post was:\n" + posts.get(i));
+					}
+					i--;
+				} while (i >= 0 && !found);
+			}
 			
 			System.out.println();
 			//Ask user for new post info

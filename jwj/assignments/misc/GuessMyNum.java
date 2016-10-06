@@ -46,15 +46,17 @@ public class GuessMyNum
         boolean keepPlaying = true;
         boolean keepGuessing = true;
         String playAgain;
-        Random random = new Random(5);
+        //Random random = new Random(5);
+        int max = 1000;
         
         do {
-            randomNum = random.nextInt(100);
-            out.println("I'm thinking of a number between 1 and 100. What is it?");
+            //randomNum = random.nextInt(100);
+        	randomNum = (int)(Math.random()*max);
+            out.println("I'm thinking of a number between 1 and " + max +". What is it?");
             //out.println("Shhh... my number is " + randomNum);
             
             do {
-                guess = getIntegerBetween(1, 100);
+                guess = getIntegerBetween(1, max);
                 count++;
                 keepGuessing = hiLow(guess, randomNum, count);
             } while (keepGuessing);
