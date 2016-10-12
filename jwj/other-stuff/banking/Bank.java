@@ -32,10 +32,18 @@ public class Bank {
 	}
 	
 	//create account
-	public void createAccount(float balance, String owner) {
+	public void createAccount(double balance, String owner, double minBalance, boolean isChecking) {
 		int accountNum = accounts.size() + 1;
-		Account newAccount = new Account(balance, accountNum, owner);
-		accounts.add(newAccount);
+		Account a;
+		//Account newAccount = new Account(balance, accountNum, owner, minBalance);
+		if (isChecking) {
+			a = new CheckingAccount(balance, accountNum, owner, minBalance, true);
+		}
+		else {
+			ContinuousStrategy cs = new ContinuousStrategy(.1);
+			a = new SavingsAccount(balance, accountNum, owner, minBalance, cs);
+		}
+		accounts.add(a);
 	}
 	
 	//deposit
